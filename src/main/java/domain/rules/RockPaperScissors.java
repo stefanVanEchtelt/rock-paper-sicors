@@ -5,14 +5,6 @@ import domain.Result;
 import domain.Rules;
 
 public class RockPaperScissors implements Rules {
-
-    private Result getResult(boolean result) {
-        if (result) {
-            return Result.WIN;
-        }
-        return Result.LOSE;
-    }
-
     @Override
     public Result decide(Move mine, Move theirs) {
         if (mine.equals(theirs)) {
@@ -21,11 +13,11 @@ public class RockPaperScissors implements Rules {
 
         switch (mine) {
             case ROCK:
-                return getResult(theirs.equals(Move.SCISSORS));
+                return theirs.equals(Move.SCISSORS) ? Result.WIN : Result.LOSE;
             case PAPER:
-                return getResult(theirs.equals(Move.ROCK));
+                return theirs.equals(Move.ROCK) ? Result.WIN : Result.LOSE;
             case SCISSORS:
-                return getResult(theirs.equals(Move.PAPER));
+                return theirs.equals(Move.PAPER) ? Result.WIN : Result.LOSE;
         }
 
         return Result.DRAW;
