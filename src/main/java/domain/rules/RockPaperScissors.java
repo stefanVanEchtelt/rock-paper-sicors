@@ -7,17 +7,12 @@ import domain.Rules;
 public class RockPaperScissors implements Rules {
     @Override
     public Result decide(Move mine, Move theirs) {
-        if (mine.equals(theirs)) {
-            return Result.DRAW;
-        }
+        if (mine.equals(theirs)) return Result.DRAW;
 
         switch (mine) {
-            case ROCK:
-                return theirs.equals(Move.SCISSORS) ? Result.WIN : Result.LOSE;
-            case PAPER:
-                return theirs.equals(Move.ROCK) ? Result.WIN : Result.LOSE;
-            case SCISSORS:
-                return theirs.equals(Move.PAPER) ? Result.WIN : Result.LOSE;
+            case ROCK: return theirs.equals(Move.SCISSORS) ? Result.WIN : Result.LOSE;
+            case PAPER: return theirs.equals(Move.ROCK) ? Result.WIN : Result.LOSE;
+            case SCISSORS: return theirs.equals(Move.PAPER) ? Result.WIN : Result.LOSE;
         }
 
         return Result.DRAW;
