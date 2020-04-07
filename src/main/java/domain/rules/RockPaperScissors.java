@@ -13,8 +13,7 @@ public class RockPaperScissors implements Rules {
             case ROCK: return theirs.equals(Move.SCISSORS) ? Result.WIN : Result.LOSE;
             case PAPER: return theirs.equals(Move.ROCK) ? Result.WIN : Result.LOSE;
             case SCISSORS: return theirs.equals(Move.PAPER) ? Result.WIN : Result.LOSE;
+            default: return Result.DRAW;
         }
-
-        return Result.DRAW;
     }
 }
